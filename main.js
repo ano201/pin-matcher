@@ -6,9 +6,13 @@ generateBtn.addEventListener("click", function() {
   const randomPin = Math.random();
   const fourDigitPin = Math.round(randomPin*10000);
   if (fourDigitPin >999) {
-   const randomPinDisplay = document.getElementById("random-pin-display");
+   randomPinDisplay = document.getElementById("random-pin-display");
    randomPinDisplay.value = fourDigitPin;
   }
+  for (var i = 0; i < notify.length; i++) {
+    notify[i].style.display = "none";
+  }
+  pinDisplay.value = "";
 })
 
 
@@ -32,5 +36,11 @@ for (var i = 0; i < allBtn.length; i++) {
 
 const submitBtn = document.querySelector(".submit-btn");
 submitBtn.addEventListener("click", function(){
-  
+  notify = document.querySelectorAll(".notify");
+  if (pinDisplay.value == randomPinDisplay.value) {
+    notify[1].style.display = "block";
+    randomPinDisplay.value = "";
+  } else {
+    notify[0].style.display = "block";
+  }
 })
