@@ -25,7 +25,7 @@ for (var i = 0; i < allBtn.length; i++) {
     } else if (this.innerText == "C") {
       pinDisplay.value = "";
     } else {
-      
+      pinDisplay.value = pinDisplay.value.substring(0, pinDisplay.value.length -1)
     }
   })
 }
