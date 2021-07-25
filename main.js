@@ -10,11 +10,13 @@ generateBtn.addEventListener("click", function() {
     randomPinDisplay = document.getElementById("random-pin-display");
     randomPinDisplay.value = fourDigitPin;
   }
-  actionLeft.innerText = tryLeft + " try left";
+  actionLeft.innerText = 3 + " try left";
   for (var i = 0; i < notify.length; i++) {
     notify[i].style.display = "none";
   }
   pinDisplay.value = "";
+  submitBtn.disabled = false;
+  submitBtn.style.backgroundColor = "#495BC3";
 })
 
 
@@ -31,7 +33,7 @@ for (var i = 0; i < allBtn.length; i++) {
     } else if (this.innerText == "C") {
       pinDisplay.value = "";
     } else {
-      pinDisplay.value = pinDisplay.value.substring(0, pinDisplay.value.length - 1)
+      pinDisplay.value = pinDisplay.value.substring(0, pinDisplay.value.length - 1);
     }
   })
 }
@@ -49,6 +51,7 @@ submitBtn.addEventListener("click", function() {
     actionLeft.innerText = tryLeft + " try left"
   }
   if (tryLeft == 0) {
-    submitBtn.disabled = "true";
+    submitBtn.disabled = true;
+    submitBtn.style.backgroundColor = "#7A9DEF";
   }
 })
